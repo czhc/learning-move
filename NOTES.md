@@ -8,6 +8,7 @@
 * [What's behind the Move movement](https://www.youtube.com/watch?v=2xJahzrjTRQ&list=PLilwLeBwGuK4H0t-tYR3C1KQFGmyZLNMG)
 * [An introduction to MOVE](https://www.certik.com/resources/blog/3o4Cg1cjQH4IwA88aT8OwT-an-introduction-to-move)
 * What gives Move built-in security? [An Introduction to Move](https://www.certik.com/resources/blog/3o4Cg1cjQH4IwA88aT8OwT-an-introduction-to-move) | [Formal Verification, the Move Language, and the Move Prover](https://www.certik.com/resources/blog/2wSOZ3mC55AB6CYol6Q2rP-formal-verification-the-move-language-and-the-move-prover)
+* [Security Analysis of the Move Language – Game Changer of Smart Contracts](https://www.numencyber.com/security-analysis-of-the-move-language-game-changer-of-smart-contracts/)
 
 ## Dev Notes
 
@@ -60,4 +61,18 @@ Network protocol version is ProtocolVersion(44), but the maximum supported versi
     * It may also fail to check complex code and requires specifications for smaller parts of the code to be added
 
 * Solidity has SMTChecker tool for `requires` and `asserts`. Move formal verification  enables the specification of more complex properties. The Move development environment includes a checker called the **Move Prover**. The Move Prover uses  [Satisfiability Modulo Theory](https://en.wikipedia.org/wiki/Satisfiability_modulo_theories) to prove specifications
+
+4. Move syntax
+
+* variables using `let` are immutable unless declared with `mut`, but same-name variables can be used for shadowing, so they have different values depending on the block of execution
+
+* Move does support negative integers (?) subtraction aborts of result is less than zero
+
+* Move supports casting `(x as u16)`
+
+* Move does not support overflow or underflow as a safety feature. additions will throw an error if the result is too large for the int type
+
+* Special type `address` and can be represented in hexadex `0x` or named addresses defined in the manifest
+
+* Conversions use `::`. Casting is explicit type coercion, while conversions use implicit conversion functions in the standard lib or compiler. Use casting for narrowing conversions or casting between known compatible types.
 
