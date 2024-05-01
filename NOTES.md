@@ -19,8 +19,15 @@ Network protocol version is ProtocolVersion(44), but the maximum supported versi
 * Upgrade sui client: `brew upgrade sui`
 
 
-2. Nomenclature
+2. Blockchain nomenclature
 
-* Package
+* Package = Contract, has an address (case-insensitive). Package can also be a dep of another package.
+* Account
 * Object
 * Transactions
+    * Transactions specify a **Gas Object** / Coin used to pay for gas. Txns also specify a gas **Price** and **Budget** similar to ethereum txns. 
+* Transaction Blocks: chain multiple commands in a single transaction
+
+
+3. Code concepts
+
